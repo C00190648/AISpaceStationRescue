@@ -3,6 +3,7 @@
 #include "Game.h"
 #include <iostream>
 
+
 //Gets the resolution, size, and bits per pixel for the screen of the PC that is running this program.
 sf::VideoMode desktop = sf::VideoMode::getDesktopMode();
 const int window_height = desktop.height;
@@ -17,7 +18,6 @@ Game::Game() :
 	setupFontAndText(); // load font 
 	setupSprite(); // load texture
 }
-
 
 Game::~Game()
 {
