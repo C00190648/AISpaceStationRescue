@@ -10,6 +10,7 @@
 sf::VideoMode desktop = sf::VideoMode::getDesktopMode();
 Player player;
 Obstacle obs;
+Obstacle obs2;
 
 const int window_height = desktop.height;
 const int window_width = desktop.width;
@@ -22,6 +23,8 @@ Game::Game() :
 {
 	setupFontAndText(); // load font 
 	setupSprite(); // load texture
+	obs2.position.x += 100;
+
 }
 
 Game::~Game()
@@ -68,7 +71,6 @@ void Game::processEvents()
 				m_exitGame = true;
 			}
 		}
-		player.move();
 	}
 }
 
@@ -82,8 +84,10 @@ void Game::update(sf::Time t_deltaTime)
 	{
 		m_window.close();
 	}
+	player.move();
 	player.update();
 	player.checkCollsions(obs.obs);
+	player.checkCollsions(obs2.obs);
 }
 
 /// <summary>
@@ -94,6 +98,7 @@ void Game::render()
 	m_window.clear(sf::Color::Black);
 	player.draw(m_window);
 	obs.draw(m_window);
+	obs2.draw(m_window);
 	m_window.display();
 
 }
