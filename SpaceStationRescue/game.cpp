@@ -14,13 +14,22 @@ Obstacle obs;
 const int window_height = desktop.height;
 const int window_width = desktop.width;
 
+sf::View view(sf::FloatRect(0, 0, 1800, 1600));
+
+
+
 Game::Game() :
-	m_window{ sf::VideoMode{ 1800, 1600, 32 }, "SFML Game" },
+	m_window{ sf::VideoMode{ 1800, 1600, 32 }, "Space Station Rescue" },
 	//m_window(sf::VideoMode(desktop.width, desktop.height, desktop.bitsPerPixel), "Boids", sf::Style::None),
+
 
 	m_exitGame{false} //when true game will exit
 {
 	setupFontAndText(); // load font 
+	sf::View view1(sf::FloatRect(200, 200, 300, 200));
+
+	// create a view with its center and size
+	sf::View view2(sf::Vector2f(350, 300), sf::Vector2f(300, 200));
 	setupSprite(); // load texture
 }
 
@@ -78,10 +87,14 @@ void Game::processEvents()
 /// <param name="t_deltaTime">time interval per frame</param>
 void Game::update(sf::Time t_deltaTime)
 {
+	//set up the view port
+
+	m_window.setView(view);
 	if (m_exitGame)
 	{
 		m_window.close();
 	}
+	view.setCenter(player.position.x, player.position.y);
 	player.update();
 	player.checkCollsions(obs.obs);
 }
