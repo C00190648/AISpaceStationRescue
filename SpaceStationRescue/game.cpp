@@ -5,19 +5,19 @@
 #include "Obstacle.h"
 #include <iostream>
 
-
+//66,60
 //Gets the resolution, size, and bits per pixel for the screen of the PC that is running this program.
 sf::VideoMode desktop = sf::VideoMode::getDesktopMode();
 Player player;
 Obstacle obs;
 
-sf::View view(sf::FloatRect(0, 0, 1800, 1600));
+sf::View view(sf::FloatRect(0, 0, 1408, 1280));
 
 const int window_height = desktop.height;
 const int window_width = desktop.width;
 
 Game::Game() :
-	m_window{ sf::VideoMode{ 1800, 1600, 32 }, "SFML Game" },
+	m_window{ sf::VideoMode{ 1408, 1280, 32 }, "SFML Game" },
 	//m_window(sf::VideoMode(desktop.width, desktop.height, desktop.bitsPerPixel), "Boids", sf::Style::None),
 
 	m_exitGame{false} //when true game will exit
