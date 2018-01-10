@@ -1,17 +1,22 @@
 // author Peter Lowe
 
 #include "Game.h"
+#include "Player.h"
+#include "Obstacle.h"
 #include <iostream>
 
 
 //Gets the resolution, size, and bits per pixel for the screen of the PC that is running this program.
 sf::VideoMode desktop = sf::VideoMode::getDesktopMode();
+Player player;
+Obstacle obs;
+
 const int window_height = desktop.height;
 const int window_width = desktop.width;
 
 Game::Game() :
-	//m_window{ sf::VideoMode{ 800, 600, 32 }, "SFML Game" },
-	m_window(sf::VideoMode(desktop.width, desktop.height, desktop.bitsPerPixel), "Boids", sf::Style::None),
+	m_window{ sf::VideoMode{ 1800, 1600, 32 }, "SFML Game" },
+	//m_window(sf::VideoMode(desktop.width, desktop.height, desktop.bitsPerPixel), "Boids", sf::Style::None),
 
 	m_exitGame{false} //when true game will exit
 {
@@ -63,6 +68,7 @@ void Game::processEvents()
 				m_exitGame = true;
 			}
 		}
+		player.move();
 	}
 }
 
@@ -76,6 +82,8 @@ void Game::update(sf::Time t_deltaTime)
 	{
 		m_window.close();
 	}
+	player.update();
+	player.checkCollsions(obs.obs);
 }
 
 /// <summary>
@@ -84,7 +92,10 @@ void Game::update(sf::Time t_deltaTime)
 void Game::render()
 {
 	m_window.clear(sf::Color::Black);
+	player.draw(m_window);
+	obs.draw(m_window);
 	m_window.display();
+
 }
 
 /// <summary>
