@@ -11,6 +11,8 @@ sf::VideoMode desktop = sf::VideoMode::getDesktopMode();
 Player player;
 Obstacle obs;
 
+sf::View view(sf::FloatRect(0, 0, 1800, 1600));
+
 const int window_height = desktop.height;
 const int window_width = desktop.width;
 
@@ -78,10 +80,14 @@ void Game::processEvents()
 /// <param name="t_deltaTime">time interval per frame</param>
 void Game::update(sf::Time t_deltaTime)
 {
+	m_window.setView(view);
+
 	if (m_exitGame)
 	{
 		m_window.close();
 	}
+
+	view.setCenter(player.position.x, player.position.y);
 	player.update();
 	player.checkCollsions(obs.obs);
 }
