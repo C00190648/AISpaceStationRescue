@@ -70,7 +70,6 @@ void Game::processEvents()
 				m_exitGame = true;
 			}
 		}
-		player.move();
 	}
 }
 
@@ -86,7 +85,7 @@ void Game::update(sf::Time t_deltaTime)
 	{
 		m_window.close();
 	}
-
+	player.move();
 	view.setCenter(player.position.x, player.position.y);
 	player.update();
 	player.checkCollsions(obs.obs);
