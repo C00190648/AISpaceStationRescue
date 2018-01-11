@@ -2,13 +2,14 @@
 
 #include "Ground.h"
 #include "Obstacle.h"
+#include "Sweeper.h"
 
 class Level
 {
 public:
 	Level();
 	~Level();
-	void setupLevel(std::vector<Ground*> &ground, std::vector<Obstacle*> &walls);
+	void setupLevel(std::vector<Ground*> &ground, std::vector<Obstacle*> &walls, std::vector<Sweeper*> &sweepers);
 	void init(float worldUnit);
 
 private:

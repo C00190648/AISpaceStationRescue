@@ -22,7 +22,7 @@ Game::Game() :
 	setupFontAndText(); // load font 
 	setupSprite(); // load texture
 	level.init(64);
-	level.setupLevel(ground, wall);
+	level.setupLevel(ground, wall,sweepers);
 }
 
 Game::~Game()
@@ -108,6 +108,12 @@ void Game::render()
 	{
 		(*i)->draw(m_window);
 	}
+
+	for (std::vector<Sweeper*>::iterator i = sweepers.begin(); i != sweepers.end(); i++)
+	{
+		(*i)->draw(m_window);
+	}
+
 	player.draw(m_window);
 	m_window.display();
 

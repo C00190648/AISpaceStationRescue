@@ -4,6 +4,7 @@
 #include "Player.h"
 #include "Obstacle.h"
 #include "Ground.h"
+#include "Sweeper.h"
 #include "Level.h"
 #include <SFML/Graphics.hpp>
 
@@ -34,6 +35,7 @@ private:
 	bool m_exitGame; // control exiting game
 	std::vector<Ground*> ground;
 	std::vector<Obstacle*> wall;
+	std::vector<Sweeper*> sweepers;
 	Level level;
 };
 

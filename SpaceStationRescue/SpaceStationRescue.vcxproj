@@ -28,6 +28,7 @@
     <ClCompile Include="Obstacle.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Pvector.cpp" />
+    <ClCompile Include="Sweeper.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Boid.h" />
@@ -38,6 +39,7 @@
     <ClInclude Include="Obstacle.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Pvector.h" />
+    <ClInclude Include="Sweeper.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="..\..\..\..\..\pictures\SFML-LOGO.png" />
