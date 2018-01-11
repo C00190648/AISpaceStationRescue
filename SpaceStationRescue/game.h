@@ -4,6 +4,7 @@
 #include "Player.h"
 #include "Obstacle.h"
 #include "Ground.h"
+#include "Worker.h"
 #include "Level.h"
 #include <SFML/Graphics.hpp>
 
@@ -32,8 +33,9 @@ private:
 	sf::Texture m_logoTexture; // texture used for sfml logo
 	sf::Sprite m_logoSprite; // sprite used for sfml logo
 	bool m_exitGame; // control exiting game
-	std::vector<Ground*> ground;
-	std::vector<Obstacle*> wall;
+	std::vector<Ground*> grounds;
+	std::vector<Obstacle*> walls;
+	std::vector<Worker*> workers;
 	Level level;
 };
 

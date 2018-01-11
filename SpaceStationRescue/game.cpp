@@ -22,7 +22,7 @@ Game::Game() :
 	setupFontAndText(); // load font 
 	setupSprite(); // load texture
 	level.init(64);
-	level.setupLevel(ground, wall);
+	level.setupLevel(grounds, walls, workers);
 }
 
 Game::~Game()
@@ -87,9 +87,20 @@ void Game::update(sf::Time t_deltaTime)
 	player.move();
 	view.setCenter(player.position.x, player.position.y);
 	player.update();
-	for (std::vector<Obstacle*>::iterator i = wall.begin(); i != wall.end(); i++)
+	for (std::vector<Obstacle*>::iterator i = walls.begin(); i != walls.end(); i++)
 	{
 		player.checkCollsions((*i)->obs);
+	}
+	for (std::vector<Worker*>::iterator i = workers.begin(); i != workers.end(); i++)
+	{
+		(*i)->update(walls);
+	}
+	for (int i =0; i < workers.size(); i++)
+	{
+		if (workers.at(i)->checkCollsions(player.player))
+		{
+			workers.erase(workers.begin() + i);
+		}
 	}
 }
 
@@ -100,11 +111,15 @@ void Game::render()
 {
 	m_window.clear(sf::Color::Black);
 
-	for (std::vector<Ground*>::iterator i = ground.begin(); i != ground.end(); i++)
+	for (std::vector<Ground*>::iterator i = grounds.begin(); i != grounds.end(); i++)
 	{
 		(*i)->draw(m_window);
 	}
-	for (std::vector<Obstacle*>::iterator i = wall.begin(); i != wall.end(); i++)
+	for (std::vector<Obstacle*>::iterator i = walls.begin(); i != walls.end(); i++)
+	{
+		(*i)->draw(m_window);
+	}
+	for (std::vector<Worker*>::iterator i = workers.begin(); i != workers.end(); i++)
 	{
 		(*i)->draw(m_window);
 	}

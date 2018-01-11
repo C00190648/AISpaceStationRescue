@@ -15,13 +15,14 @@ public:
 	void checkCollsions(sf::Sprite sprite);
 	sf::Vector2f position;
 	sf::Vector2f velocity;
+	sf::Sprite player;
 
 private:
 
 	sf::Texture playerTexture;
-	sf::Sprite player;
 	//0.0827 change by
 	float rotation;
+	float rotationDir;
 	bool pressed;
 	bool canMove;
 	float speed;
