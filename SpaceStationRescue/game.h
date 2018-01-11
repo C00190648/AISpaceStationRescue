@@ -1,7 +1,10 @@
 // author Peter Lowe
 #ifndef GAME
 #define GAME
-
+#include "Player.h"
+#include "Obstacle.h"
+#include "Ground.h"
+#include "Level.h"
 #include <SFML/Graphics.hpp>
 
 class Game
@@ -29,7 +32,9 @@ private:
 	sf::Texture m_logoTexture; // texture used for sfml logo
 	sf::Sprite m_logoSprite; // sprite used for sfml logo
 	bool m_exitGame; // control exiting game
-
+	std::vector<Ground*> ground;
+	std::vector<Obstacle*> wall;
+	Level level;
 };
 
 #endif // !GAME

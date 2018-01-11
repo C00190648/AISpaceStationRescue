@@ -1,11 +1,11 @@
 #include "Obstacle.h"
 
-Obstacle::Obstacle()
+Obstacle::Obstacle(sf::Vector2f pos)
 {
-	obstacleTexture.loadFromFile("obstacle.png");
+	obstacleTexture.loadFromFile("ASSETS/IMAGES/wall.png");
 	obs.setTexture(obstacleTexture);
-	position.x = 500;
-	position.y = 1000;
+	position = pos;
+	obs.setPosition(position);
 }
 
 Obstacle::~Obstacle()
@@ -14,6 +14,6 @@ Obstacle::~Obstacle()
 
 void Obstacle::draw(sf::RenderWindow& window)
 {
-	obs.setPosition(position);
+
 	window.draw(obs);
 }

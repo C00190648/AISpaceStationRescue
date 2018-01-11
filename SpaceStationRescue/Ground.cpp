@@ -3,8 +3,9 @@
 Ground::Ground(sf::Vector2f pos)
 {
 	position = pos;
-	groundTexture.loadFromFile("ground.png");
+	groundTexture.loadFromFile("ASSETS/IMAGES/ground.png");
 	ground.setTexture(groundTexture);
+	ground.setPosition(position);
 }
 
 Ground::~Ground()

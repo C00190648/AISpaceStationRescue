@@ -1,29 +1,28 @@
 // author Peter Lowe
 
 #include "Game.h"
-#include "Player.h"
-#include "Obstacle.h"
 #include <iostream>
 
 
 //Gets the resolution, size, and bits per pixel for the screen of the PC that is running this program.
 sf::VideoMode desktop = sf::VideoMode::getDesktopMode();
 Player player;
-Obstacle obs;
 
-sf::View view(sf::FloatRect(0, 0, 1800, 1600));
+sf::View view(sf::FloatRect(0, 0, 1408, 1280));
 
 const int window_height = desktop.height;
 const int window_width = desktop.width;
 
 Game::Game() :
-	m_window{ sf::VideoMode{ 1800, 1600, 32 }, "SFML Game" },
+	m_window{ sf::VideoMode{ 1408, 1280, 32 }, "SFML Game" },
 	//m_window(sf::VideoMode(desktop.width, desktop.height, desktop.bitsPerPixel), "Boids", sf::Style::None),
 
 	m_exitGame{false} //when true game will exit
 {
 	setupFontAndText(); // load font 
 	setupSprite(); // load texture
+	level.init(64);
+	level.setupLevel(ground, wall);
 }
 
 Game::~Game()
@@ -88,7 +87,10 @@ void Game::update(sf::Time t_deltaTime)
 	player.move();
 	view.setCenter(player.position.x, player.position.y);
 	player.update();
-	player.checkCollsions(obs.obs);
+	for (std::vector<Obstacle*>::iterator i = wall.begin(); i != wall.end(); i++)
+	{
+		player.checkCollsions((*i)->obs);
+	}
 }
 
 /// <summary>
@@ -97,8 +99,16 @@ void Game::update(sf::Time t_deltaTime)
 void Game::render()
 {
 	m_window.clear(sf::Color::Black);
+
+	for (std::vector<Ground*>::iterator i = ground.begin(); i != ground.end(); i++)
+	{
+		(*i)->draw(m_window);
+	}
+	for (std::vector<Obstacle*>::iterator i = wall.begin(); i != wall.end(); i++)
+	{
+		(*i)->draw(m_window);
+	}
 	player.draw(m_window);
-	obs.draw(m_window);
 	m_window.display();
 
 }

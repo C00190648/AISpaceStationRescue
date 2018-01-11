@@ -2,15 +2,15 @@
 
 Player::Player()
 {
-	playerTexture.loadFromFile("player.png");
+	playerTexture.loadFromFile("ASSETS/IMAGES/player1.png");
 	player.setTexture(playerTexture);
-	player.setOrigin(35, 25);
+	player.setOrigin(64, 45);
 
 	position.x = 600;
 	position.y = 600;
 	rotation = player.getRotation();
 	canMove = true;
-	speed = 3;
+	speed = 8;
 }
 
 Player::~Player()
@@ -21,27 +21,27 @@ void Player::checkCollsions(sf::Sprite sprite)
 {
 	if (player.getGlobalBounds().intersects(sprite.getGlobalBounds()))
 	{
-		if (position.x + 30 > sprite.getPosition().x + sprite.getGlobalBounds().width
+		if (position.x + 45 > sprite.getPosition().x + sprite.getGlobalBounds().width
 			&& (position.y + 10 > sprite.getPosition().y
 				&& position.y < sprite.getPosition().y + sprite.getGlobalBounds().height + 10)
-			|| (position.y  > sprite.getPosition().y + sprite.getGlobalBounds().height * 2
+			|| (position.y  > sprite.getPosition().y + sprite.getGlobalBounds().height
 				&& velocity.y > 0 && velocity.y > velocity.x && velocity.y > velocity.x *-1)
 			|| (position.y + 60 < sprite.getPosition().y
 				&& velocity.y < 0 && velocity.y < velocity.x && velocity.y < velocity.x *-1))
 		{
-			position.x = position.x + 10;
+			position.x = position.x + (speed + 1);
 		}
 		if (position.x < sprite.getPosition().x
 			&& (position.y + 10 > sprite.getPosition().y
 				&& position.y < sprite.getPosition().y + sprite.getGlobalBounds().height + 10)
-			|| (position.y  > sprite.getPosition().y + sprite.getGlobalBounds().height * 2
+			|| (position.y  > sprite.getPosition().y + sprite.getGlobalBounds().height
 				&& velocity.y > 0 && velocity.y > velocity.x && velocity.y > velocity.x *-1)
 			|| (position.y  < sprite.getPosition().y
 				&& velocity.y < 0 && velocity.y < velocity.x && velocity.y < velocity.x *-1))
 		{
-			position.x = position.x - 10;
+			position.x = position.x - (speed + 1);
 		}
-		if (position.y - 30 < sprite.getPosition().y
+		if (position.y < sprite.getPosition().y
 			&& (position.x + 10 > sprite.getPosition().x
 				&& position.x < sprite.getPosition().x + sprite.getGlobalBounds().width + 10)
 			|| (position.x  > sprite.getPosition().x + sprite.getGlobalBounds().width * 2
@@ -49,9 +49,9 @@ void Player::checkCollsions(sf::Sprite sprite)
 			|| (position.x + 60 < sprite.getPosition().x
 				&& velocity.x < 0 && velocity.x < velocity.y && velocity.x < velocity.y *-1))
 		{
-			position.y = position.y - 10;
+			position.y = position.y - (speed + 1);
 		}
-		if (position.y > sprite.getPosition().y + sprite.getGlobalBounds().height
+		if (position.y + 45 > sprite.getPosition().y + sprite.getGlobalBounds().height
 			&& (position.x + 10 > sprite.getPosition().x
 				&& position.x < sprite.getPosition().x + sprite.getGlobalBounds().width + 10)
 			|| (position.x  > sprite.getPosition().x + sprite.getGlobalBounds().width * 2
@@ -59,7 +59,7 @@ void Player::checkCollsions(sf::Sprite sprite)
 			|| (position.x + 60 < sprite.getPosition().x
 				&& velocity.x < 0 && velocity.x < velocity.y && velocity.x < velocity.y *-1))
 		{
-			position.y = position.y + 10;
+			position.y = position.y + (speed + 1);
 		}
 	}
 }

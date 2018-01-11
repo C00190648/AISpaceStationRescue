@@ -7,7 +7,7 @@
 class Obstacle
 {
 public:
-	Obstacle();
+	Obstacle(sf::Vector2f pos);
 	~Obstacle();
 	void draw(sf::RenderWindow& window);
 	sf::Vector2f position;
