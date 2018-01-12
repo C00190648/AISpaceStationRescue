@@ -7,7 +7,7 @@ Worker::Worker(sf::Vector2f pos)
 	speed = 2;
 	texture.loadFromFile("ASSETS/IMAGES/worker.png");
 	sprite.setTexture(texture);
-	sprite.setOrigin(16, 16);
+	sprite.setOrigin(28, 32);
 	orientation = sprite.getRotation();
 	position = pos;
 	rotation = 7.5;
@@ -65,12 +65,12 @@ void Worker::checkWallCollsions(sf::Sprite sprit)
 {
 	if (sprite.getGlobalBounds().intersects(sprit.getGlobalBounds()))
 	{
-		if (position.x + 16 > sprit.getPosition().x + sprit.getGlobalBounds().width
+		if (position.x + 32 > sprit.getPosition().x + sprit.getGlobalBounds().width
 			&& (position.y + 10 > sprit.getPosition().y
 				&& position.y < sprit.getPosition().y + sprit.getGlobalBounds().height + 10)
 			|| (position.y > sprit.getPosition().y + sprit.getGlobalBounds().height
 				&& velocity.y > 0 && velocity.y > velocity.x && velocity.y > velocity.x *-1)
-			|| (position.y + 16 < sprit.getPosition().y
+			|| (position.y + 32 < sprit.getPosition().y
 				&& velocity.y < 0 && velocity.y < velocity.x && velocity.y < velocity.x *-1))
 		{
 			position.x = position.x + (speed + 1);
@@ -90,7 +90,7 @@ void Worker::checkWallCollsions(sf::Sprite sprit)
 				&& position.x < sprit.getPosition().x + sprit.getGlobalBounds().width + 10)
 			|| (position.x > sprit.getPosition().x + sprit.getGlobalBounds().width * 2
 				&& velocity.x > 0 && velocity.x > velocity.y && velocity.x > velocity.y *-1)
-			|| (position.x + 16 < sprit.getPosition().x
+			|| (position.x + 32 < sprit.getPosition().x
 				&& velocity.x < 0 && velocity.x < velocity.y && velocity.x < velocity.y *-1))
 		{
 			position.y = position.y - (speed + 1);
@@ -100,7 +100,7 @@ void Worker::checkWallCollsions(sf::Sprite sprit)
 				&& position.x < sprit.getPosition().x + sprit.getGlobalBounds().width + 10)
 			|| (position.x > sprit.getPosition().x + sprit.getGlobalBounds().width * 2
 				&& velocity.x > 0 && velocity.x > velocity.y && velocity.x > velocity.y *-1)
-			|| (position.x + 16 < sprit.getPosition().x
+			|| (position.x + 32 < sprit.getPosition().x
 				&& velocity.x < 0 && velocity.x < velocity.y && velocity.x < velocity.y *-1))
 		{
 			position.y = position.y + (speed + 1);

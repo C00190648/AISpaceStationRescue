@@ -6,6 +6,7 @@
 #include "Ground.h"
 #include "Worker.h"
 #include "Level.h"
+#include "Nest.h"
 #include <SFML/Graphics.hpp>
 
 class Game
@@ -36,6 +37,8 @@ private:
 	std::vector<Ground*> grounds;
 	std::vector<Obstacle*> walls;
 	std::vector<Worker*> workers;
+	std::vector<Nest*> nests;
+	const int MAXNESTS = 3;
 	Level level;
 };
 

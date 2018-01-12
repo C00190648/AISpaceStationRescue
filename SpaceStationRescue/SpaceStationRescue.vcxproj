@@ -25,9 +25,11 @@
     <ClCompile Include="Ground.cpp" />
     <ClCompile Include="Level.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Nest.cpp" />
     <ClCompile Include="Obstacle.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Pvector.cpp" />
+    <ClCompile Include="SeekerBullet.cpp" />
     <ClCompile Include="Worker.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -36,9 +38,11 @@
     <ClInclude Include="Game.h" />
     <ClInclude Include="Ground.h" />
     <ClInclude Include="Level.h" />
+    <ClInclude Include="Nest.h" />
     <ClInclude Include="Obstacle.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Pvector.h" />
+    <ClInclude Include="SeekerBullet.h" />
     <ClInclude Include="Worker.h" />
   </ItemGroup>
   <ItemGroup>

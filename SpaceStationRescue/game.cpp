@@ -8,6 +8,7 @@
 sf::VideoMode desktop = sf::VideoMode::getDesktopMode();
 Player player;
 
+
 sf::View view(sf::FloatRect(0, 0, 1408, 1280));
 
 const int window_height = desktop.height;
@@ -23,6 +24,10 @@ Game::Game() :
 	setupSprite(); // load texture
 	level.init(64);
 	level.setupLevel(grounds, walls, workers);
+	for (int i = 0; i < MAXNESTS; i++)
+	{
+		nests.push_back(new Nest(grounds.at(rand() % grounds.size())->position));
+	}
 }
 
 Game::~Game()
@@ -95,6 +100,10 @@ void Game::update(sf::Time t_deltaTime)
 	{
 		(*i)->update(walls);
 	}
+	for (std::vector<Nest*>::iterator i = nests.begin(); i != nests.end(); i++)
+	{
+		(*i)->update(player, walls);
+	}
 	for (int i =0; i < workers.size(); i++)
 	{
 		if (workers.at(i)->checkCollsions(player.player))
@@ -120,6 +129,10 @@ void Game::render()
 		(*i)->draw(m_window);
 	}
 	for (std::vector<Worker*>::iterator i = workers.begin(); i != workers.end(); i++)
+	{
+		(*i)->draw(m_window);
+	}
+	for (std::vector<Nest*>::iterator i = nests.begin(); i != nests.end(); i++)
 	{
 		(*i)->draw(m_window);
 	}
