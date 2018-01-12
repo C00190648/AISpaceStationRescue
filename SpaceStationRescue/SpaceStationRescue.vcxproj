@@ -28,6 +28,7 @@
     <ClCompile Include="Obstacle.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Pvector.cpp" />
+    <ClCompile Include="Sweeper.cpp" />
     <ClCompile Include="Worker.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -39,6 +40,7 @@
     <ClInclude Include="Obstacle.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Pvector.h" />
+    <ClInclude Include="Sweeper.h" />
     <ClInclude Include="Worker.h" />
   </ItemGroup>
   <ItemGroup>

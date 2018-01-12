@@ -1,14 +1,2 @@
-﻿  Worker.cpp
-c:\users\gameuser\documents\ai for games\aispacestationrescue\spacestationrescue\worker.cpp(14): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-c:\users\gameuser\documents\ai for games\aispacestationrescue\spacestationrescue\worker.cpp(15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-c:\users\gameuser\documents\ai for games\aispacestationrescue\spacestationrescue\worker.cpp(40): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
-c:\users\gameuser\documents\ai for games\aispacestationrescue\spacestationrescue\worker.cpp(41): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-c:\users\gameuser\documents\ai for games\aispacestationrescue\spacestationrescue\worker.cpp(46): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
-c:\users\gameuser\documents\ai for games\aispacestationrescue\spacestationrescue\worker.cpp(47): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-  Generating Code...
-  Skipping... (no relevant changes detected)
-  main.cpp
-  Level.cpp
-  Game.cpp
-  SpaceStationRescue.vcxproj -> C:\Users\gameuser\Documents\AI for Games\AISpaceStationRescue\SpaceStationRescue\Debug\SpaceStationRescue.exe
-  SpaceStationRescue.vcxproj -> C:\Users\gameuser\Documents\AI for Games\AISpaceStationRescue\SpaceStationRescue\Debug\SpaceStationRescue.pdb (Partial PDB)
+﻿  SpaceStationRescue.vcxproj -> C:\AIS\AISpaceStationRescue\SpaceStationRescue\Debug\SpaceStationRescue.exe
+  SpaceStationRescue.vcxproj -> C:\AIS\AISpaceStationRescue\SpaceStationRescue\Debug\SpaceStationRescue.pdb (Partial PDB)

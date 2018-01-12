@@ -22,7 +22,7 @@ Game::Game() :
 	setupFontAndText(); // load font 
 	setupSprite(); // load texture
 	level.init(64);
-	level.setupLevel(grounds, walls, workers);
+	level.setupLevel(grounds, walls, workers,sweepers);
 }
 
 Game::~Game()
@@ -102,6 +102,11 @@ void Game::update(sf::Time t_deltaTime)
 			workers.erase(workers.begin() + i);
 		}
 	}
+
+	for (std::vector<Sweeper*>::iterator i = sweepers.begin(); i != sweepers.end(); i++)
+	{
+		(*i)->update(walls);
+	}
 }
 
 /// <summary>
@@ -123,6 +128,12 @@ void Game::render()
 	{
 		(*i)->draw(m_window);
 	}
+
+	for (std::vector<Sweeper*>::iterator i = sweepers.begin(); i != sweepers.end(); i++)
+	{
+		(*i)->draw(m_window);
+	}
+
 	player.draw(m_window);
 	m_window.display();
 

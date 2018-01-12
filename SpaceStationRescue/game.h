@@ -6,6 +6,7 @@
 #include "Ground.h"
 #include "Worker.h"
 #include "Level.h"
+#include "Sweeper.h"
 #include <SFML/Graphics.hpp>
 
 class Game
@@ -36,6 +37,7 @@ private:
 	std::vector<Ground*> grounds;
 	std::vector<Obstacle*> walls;
 	std::vector<Worker*> workers;
+	std::vector<Sweeper*> sweepers;
 	Level level;
 };
 
